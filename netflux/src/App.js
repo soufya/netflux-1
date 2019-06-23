@@ -4,9 +4,13 @@ import React from 'react';
 class App extends React.Component {
   render() {
     return (
-      <h1>تطبيق Netflux</h1>
+      <div className="wrapper">
+        <div className="container">
+          <h1>تطبيق Netflux</h1>
+        </div>
+      </div>
     );
-  } 
+  }
 }
 
 export default App;
