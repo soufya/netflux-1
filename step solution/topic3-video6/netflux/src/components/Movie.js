@@ -1,15 +1,13 @@
 import React from 'react';
 
-import image1 from "../img/movie1.svg";
-
 class Movie extends React.Component {
   render() {
     return (
       <li className="movie">
         <a href="#">
-          <img src={image1} alt="poster cover" />
+          <img src={this.props.image} alt="poster cover" />
           <span className="movie-description">
-            The Maze Runner
+            {this.props.title}
 									<span className="play-icon"><i className="fas fa-play"></i></span>
           </span>
         </a>

@@ -9,10 +9,10 @@ class MovieSuggestion extends React.Component {
         <div className="container">
           <h3 className="section-title">إقتراحتنا لك</h3>
           <ul className="moviesGrid">
-            <Movie />
-            <Movie />
-            <Movie />
-            <Movie />
+            <Movie image={this.props.images[0]} title="The Maze Runner"/>
+            <Movie image={this.props.images[1]} title="Breaking Bad"/>
+            <Movie image={this.props.images[2]} title="Peaky Blinders"/>
+            <Movie image={this.props.images[3]} title="The Good Doctor"/>
           </ul>
         </div>
       </section>

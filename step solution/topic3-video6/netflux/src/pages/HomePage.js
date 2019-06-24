@@ -8,16 +8,24 @@ import NewShows from '../components/NewShows';
 import NewMovies from '../components/NewMovies';
 import Footer from '../components/Footer';
 
+// import images
+import image1 from "../img/movie1.svg";
+import image2 from "../img/movie2.svg";
+import image3 from "../img/movie3.svg";
+import image4 from "../img/movie4.svg";
+
 class HomePage extends React.Component {
+  posterImages = [image1, image2, image3, image4];
+
   render() {
     return (
       <>
       <Header />
       <Hero />
-      <MovieSuggestion />
-      <MostViwed />
-      <NewShows />
-      <NewMovies />
+      <MovieSuggestion images={this.posterImages}/>
+      <MostViwed images={this.posterImages}/>
+      <NewShows images={this.posterImages}/>
+      <NewMovies images={this.posterImages}/>
       <Footer />
       </>
     );
