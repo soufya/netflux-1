@@ -1,8 +1,7 @@
 import React from 'react';
 import logo from '../img/logo.svg';
 
-class Footer extends React.Component {
-  render() {
+const Footer = () => {
     return (
       <footer className="section">
         <div className="container">
@@ -20,7 +19,6 @@ class Footer extends React.Component {
 				</div>
 			</footer>
     );
-  }
 }
 
 export default Footer;

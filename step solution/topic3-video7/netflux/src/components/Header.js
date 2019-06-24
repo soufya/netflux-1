@@ -1,8 +1,7 @@
 import React from 'react';
 import logo from '../img/logo.svg';
 
-class Header extends React.Component {
-  render() {
+const Header = () => {
     return (
       <header className="section" role="navigation">
         <div className="container">
@@ -42,7 +41,6 @@ class Header extends React.Component {
       </div>
 		</header>
     );
-  }
 }
 
 export default Header;

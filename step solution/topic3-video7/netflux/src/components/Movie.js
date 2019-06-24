@@ -1,19 +1,17 @@
 import React from 'react';
 
-class Movie extends React.Component {
-  render() {
+const Movie = props => {
     return (
       <li className="movie">
         <a href="#">
-          <img src={this.props.image} alt="poster cover" />
+          <img src={props.image} alt="poster cover" />
           <span className="movie-description">
-            {this.props.title}
-									<span className="play-icon"><i className="fas fa-play"></i></span>
+            {props.title}
+						<span className="play-icon"><i className="fas fa-play"></i></span>
           </span>
         </a>
       </li>
     );
-  }
 }
 
 export default Movie;

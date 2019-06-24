@@ -1,7 +1,6 @@
 import React from 'react';
 
-class Hero extends React.Component {
-  render() {
+const Hero = () => {
     return (
       <section className="section hero featuredMovies has-bullets">
         <div className="container">
@@ -16,7 +15,6 @@ class Hero extends React.Component {
         </div>
       </section>
     );
-  }
 }
 
 export default Hero;
