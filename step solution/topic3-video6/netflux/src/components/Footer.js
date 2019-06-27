@@ -7,18 +7,17 @@ class Footer extends React.Component {
       <footer className="section">
         <div className="container">
           <section className="footer-nav" role="navigation">
-            <a className="navbar-item grayscale" href="#/"><img src={logo} width="80" alt="netflux logo" /></a>
-              <div className="navbar-menu">
-                <ul className="navbar-menu">
-                  <li><a className="navbar-item" href="#">الرئيسية</a></li>
-                  <li><a className="navbar-item" href="./movies.html">أفلام</a></li>
-                  <li><a className="navbar-item" href="./shows.html">مسلسلات</a></li>
-                </ul>
-              </div>
-              <a className="navbar-item logout" href="#/logout">تسجيل الخروج</a>
-					</section>
-				</div>
-			</footer>
+            <a className="navbar-item grayscale" href="#/"><img src={logo} width="80" /></a>
+            <div className="navbar-menu">
+              <ul className="navbar-menu">
+                <li><a className="navbar-item" href="#">الرئيسية</a></li>
+                <li><a className="navbar-item" href="./movies.html">أفلام</a></li>
+                <li><a className="navbar-item" href="./shows.html">مسلسلات</a></li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </footer>
     );
   }
 }

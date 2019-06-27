@@ -15,7 +15,6 @@ class Footer extends React.Component {
                   <li><a className="navbar-item" href="./shows.html">مسلسلات</a></li>
                 </ul>
               </div>
-              <a className="navbar-item logout" href="#/logout">تسجيل الخروج</a>
 					</section>
 				</div>
 			</footer>
