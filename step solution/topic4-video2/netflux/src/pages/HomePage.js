@@ -14,26 +14,34 @@ import image2 from "../img/movie2.svg";
 import image3 from "../img/movie3.svg";
 import image4 from "../img/movie4.svg";
 
+// import data
+import data from "../data/movies.json";
+
 class HomePage extends React.Component {
 
+  // state = {
+  //   movies: [
+  //     { title: 'The Maze Runner', poster: image1 },
+  //     { title: 'Breaking Bad', poster: image2 },
+  //     { title: 'Peaky Blinders', poster: image3 },
+  //     { title: 'The Good Doctor', poster: image4 }
+  //   ]
+  // }
+
   state = {
-    movies: [
-      { title: 'The Maze Runner', poster: image1 },
-      { title: 'Breaking Bad', poster: image2 },
-      { title: 'Peaky Blinders', poster: image3 },
-      { title: 'The Good Doctor', poster: image4 }
-    ]
+    movies: data
   }
 
   render() {
+
     return (
       <>
         <Header />
         <Hero />
-        <MovieSuggestion movies={this.state.movies} />
-        <MostViwed movies={this.state.movies} />
-        <NewShows movies={this.state.movies} />
-        <NewMovies movies={this.state.movies} />
+        <MovieSuggestion movies={this.state.movies} image={image1}/>
+        <MostViwed movies={this.state.movies} image={image1}/>
+        <NewShows movies={this.state.movies} image={image1}/>
+        <NewMovies movies={this.state.movies} image={image1}/>
         <Footer />
       </>
     );
