@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from './Logo';
+import MenuBar from "./MenuBar";
 
 const Header = () => {
     return (
@@ -10,11 +11,7 @@ const Header = () => {
             <span className="navicon"></span>
           </label>
           <Logo />
-          <ul className="navbar-menu">
-            <li><a className="navbar-item active" href="/">الرئيسية</a></li>
-            <li><a className="navbar-item" href="./movies.html">أفلام</a></li>
-            <li><a className="navbar-item" href="./shows.html">مسلسلات</a></li>
-            </ul>
+          <MenuBar active="active"/>
           <div className="navbar-search">
             <button><i className="fas fa-search"></i></button>
             <input className="searchInput" type="text" name="search" placeholder="إبحث عن فيلم أو مسلسل..." />
