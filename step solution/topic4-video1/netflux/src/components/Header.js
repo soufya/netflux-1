@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../img/logo.svg';
+import Logo from './Logo';
 
 const Header = () => {
     return (
@@ -9,7 +9,7 @@ const Header = () => {
           <label className="navbar-burger" htmlFor="menu-btn">
             <span className="navicon"></span>
           </label>
-          <a className="navbar-item" href="#/"><img src={ logo } width="80" alt="netflux logo" /></a>
+          <Logo />
           <ul className="navbar-menu">
             <li><a className="navbar-item active" href="/">الرئيسية</a></li>
             <li><a className="navbar-item" href="./movies.html">أفلام</a></li>
