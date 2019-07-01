@@ -20,13 +20,13 @@ class HomePage extends React.Component {
   render() {
     return (
       <>
-      <Header />
-      <Hero />
-      <MovieSuggestion images={this.posterImages}/>
-      <MostViwed images={this.posterImages}/>
-      <NewShows images={this.posterImages}/>
-      <NewMovies images={this.posterImages}/>
-      <Footer />
+        <Header />
+        <Hero />
+        <MovieSuggestion images={this.posterImages} />
+        <MostViwed images={this.posterImages} />
+        <NewShows images={this.posterImages} />
+        <NewMovies images={this.posterImages} />
+        <Footer />
       </>
     );
   }
