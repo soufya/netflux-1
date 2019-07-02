@@ -23,13 +23,16 @@ class HomePage extends React.Component {
     movies: data
   }
 
-  render() {
+  SuggestedMovies() {
+    return this.state.movies.filter(movie => movie.voteAverage > 7);
+  }
 
+  render() {
     return (
       <>
         <Header />
         <Hero />
-        <MovieSuggestion movies={this.state.movies}/>
+        <MovieSuggestion movies={this.SuggestedMovies()}/>
         <MostViwed movies={this.state.movies}/>
         <NewShows movies={this.state.movies}/>
         <NewMovies movies={this.state.movies}/>
