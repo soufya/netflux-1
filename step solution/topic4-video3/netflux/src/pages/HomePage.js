@@ -19,15 +19,6 @@ import data from "../data/movies.json";
 
 class HomePage extends React.Component {
 
-  // state = {
-  //   movies: [
-  //     { title: 'The Maze Runner', poster: image1 },
-  //     { title: 'Breaking Bad', poster: image2 },
-  //     { title: 'Peaky Blinders', poster: image3 },
-  //     { title: 'The Good Doctor', poster: image4 }
-  //   ]
-  // }
-
   state = {
     movies: data
   }
@@ -38,10 +29,10 @@ class HomePage extends React.Component {
       <>
         <Header />
         <Hero />
-        <MovieSuggestion movies={this.state.movies} image={image1}/>
-        <MostViwed movies={this.state.movies} image={image1}/>
-        <NewShows movies={this.state.movies} image={image1}/>
-        <NewMovies movies={this.state.movies} image={image1}/>
+        <MovieSuggestion movies={this.state.movies}/>
+        <MostViwed movies={this.state.movies}/>
+        <NewShows movies={this.state.movies}/>
+        <NewMovies movies={this.state.movies}/>
         <Footer />
       </>
     );
