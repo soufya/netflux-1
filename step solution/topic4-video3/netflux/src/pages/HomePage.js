@@ -17,19 +17,37 @@ class HomePage extends React.Component {
     movies: data
   }
 
-  SuggestedMovies() {
+  suggestedMovies() {
     return this.state.movies.filter(movie => movie.voteAverage > 8);
   }
 
+  mostViwed() {
+    // 1. copy the state
+    const moviesCopy = [...this.state.movies];
+    // 2. return sorted data
+    return moviesCopy.sort((movie1, movie2) => movie1.popularity > movie2.popularity ? -1 : 1);
+  }
+
+  recentRelease() {
+    // 1. copy the state
+    const moviesCopy = [...this.state.movies];
+    // 2. filter based on category
+    const filteredDate = moviesCopy.filter(data => data.category === 'Film');
+    // 3.  sorted data descendingly
+    return filteredDate.sort((date1, date2) => new Date(date1.releaseDate) > new Date(date2.releaseDate) ? -1 : 1);
+  }
+
   render() {
+    console.log(this.recentRelease());
+
     return (
       <>
         <Header />
         <Hero />
-        <MovieSuggestion movies={this.SuggestedMovies()}/>
-        <MostViwed movies={this.state.movies}/>
+        <MovieSuggestion movies={this.suggestedMovies()}/>
+        <MostViwed movies={this.mostViwed()}/>
         <NewShows movies={this.state.movies}/>
-        <NewMovies movies={this.state.movies}/>
+        <NewMovies movies={this.recentRelease()}/>
         <Footer />
       </>
     );

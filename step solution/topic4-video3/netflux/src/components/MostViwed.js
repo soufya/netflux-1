@@ -3,12 +3,12 @@ import Movie from "./Movie";
 import MovieGrid from "./MovieGrid";
 
 const MostViwed = props => {
+  const movies = props.movies.slice(0, 4);
+  const movie = movies.map(data => <Movie image={data.posterPath} title={data.originalTitle} key={data.movieVideos.key} />);
+
     return (
       <MovieGrid gridType="is-suggested" title="الأكثر مشاهدة">
-        <Movie image={props.movies[4].posterPath} title={props.movies[4].originalTitle} />
-        <Movie image={props.movies[5].posterPath} title={props.movies[5].originalTitle} />
-        <Movie image={props.movies[6].posterPath} title={props.movies[6].originalTitle} />
-        <Movie image={props.movies[7].posterPath} title={props.movies[7].originalTitle} />
+        {movie}
       </MovieGrid>
     );
 }
