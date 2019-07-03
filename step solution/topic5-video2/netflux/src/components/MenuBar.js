@@ -1,11 +1,18 @@
 import React from "react";
+import { NavLink } from 'react-router-dom';
 
-const MenuBar = (props) => {
+const MenuBar = () => {
   return (
     <ul className="navbar-menu">
-      <li><a className={`navbar-item ${props.active}`} href="/">الرئيسية</a></li>
-      <li><a className="navbar-item" href="./movies.html">أفلام</a></li>
-      <li><a className="navbar-item" href="./shows.html">مسلسلات</a></li>
+      <li>
+        <NavLink exact to="/" className="navbar-item">الرئيسية</NavLink>
+      </li>
+      <li>
+        <NavLink exact to="/movies" className="navbar-item">أفلام</NavLink>
+      </li>
+      <li>
+        <NavLink exact to="/shows" className="navbar-item">مسلسلات</NavLink>
+      </li>
     </ul>
   );
 }

@@ -13,13 +13,14 @@ import Footer from '../components/Footer';
 const HomePage = (props) => {
   return (
     <>
-      <Header />
+      {/* <Header />
       <Hero />
       <MovieSuggestion movies={props.suggested}/>
       <MostViwed movies={props.mostViwed}/>
       <NewShows movies={props.recentMovies} filterLimit={props.filterLimit}/>
       <NewMovies movies={props.recentShows} filterLimit={props.filterLimit}/>
-      <Footer />
+      <Footer /> */}
+      <h1>hello from the home page</h1>
     </>
   );
 }

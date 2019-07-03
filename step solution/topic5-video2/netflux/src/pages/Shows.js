@@ -10,12 +10,13 @@ import Footer from '../components/Footer';
 const Shows = (props) => {
   return (
     <>
-      <Header />
+      {/* <Header />
       <Filter type={props.type} optionText={props.optionText}/>
       <MovieSuggestion movies={props.suggested} />
       <MostViwed movies={props.mostViwed} />
       <NewShows movies={props.recentMovies} />
-      <Footer />
+      <Footer /> */}
+      <h1>hello from the shows page</h1>
     </>
   );
 }

@@ -1,8 +1,7 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
-import HomePage from './pages/HomePage';
-import Movies from './pages/Movies';
-import Shows from './pages/Shows';
+import SPA from './SPA';
 
 // import data
 import data from "./data/movies.json";
@@ -32,18 +31,25 @@ class App extends React.Component {
     return filteredDate.sort((date1, date2) => new Date(date1.releaseDate) > new Date(date2.releaseDate) ? -1 : 1);
   }
 
+
   render() {
     return (
       <div className="wrapper">
         <div className="container">
-          <Movies
+          <BrowserRouter>
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+            </Switch>
+          </BrowserRouter>
+
+          {/* <Movies
             suggested={this.suggestedMovies()}
             mostViwed={this.mostViwed()}
             recentMovies={this.recentRelease('Film')}
             filterLimit={32}
             type="أفلام"
             optionText="نوع الفيلم"
-          />
+          /> */}
 
           {/* <Shows
             suggested={this.suggestedMovies()}
