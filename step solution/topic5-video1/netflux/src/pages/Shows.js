@@ -4,20 +4,20 @@ import Header from '../components/Header';
 import Filter from '../components/Filter';
 import MovieSuggestion from '../components/MovieSuggestion';
 import MostViwed from '../components/MostViwed';
-import NewMovies from '../components/NewMovies';
+import NewShows from '../components/NewShows';
 import Footer from '../components/Footer';
 
-const Movies = (props) => {
+const Shows = (props) => {
   return (
     <>
       <Header />
-      <Filter type={props.type} optionText={props.optionText} />
+      <Filter type={props.type} optionText={props.optionText}/>
       <MovieSuggestion movies={props.suggested} />
       <MostViwed movies={props.mostViwed} />
-      <NewMovies movies={props.recentMovies} filterLimit={props.filterLimit}/>
+      <NewShows movies={props.recentMovies} />
       <Footer />
     </>
   );
 }
 
-export default Movies;
+export default Shows;

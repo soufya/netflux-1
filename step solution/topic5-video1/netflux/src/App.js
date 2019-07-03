@@ -2,6 +2,7 @@ import React from 'react';
 
 import HomePage from './pages/HomePage';
 import Movies from './pages/Movies';
+import Shows from './pages/Shows';
 
 // import data
 import data from "./data/movies.json";
@@ -39,12 +40,26 @@ class App extends React.Component {
             suggested={this.suggestedMovies()}
             mostViwed={this.mostViwed()}
             recentMovies={this.recentRelease('Film')}
+            filterLimit={32}
+            type="أفلام"
+            optionText="نوع الفيلم"
           />
+
+          {/* <Shows
+            suggested={this.suggestedMovies()}
+            mostViwed={this.mostViwed()}
+            recentMovies={this.recentRelease('Show')}
+            filterLimit={32}
+            type="المسلسلات"
+            optionText="نوع المسلسل"
+          /> */}
+
           {/* <HomePage
             suggested={this.suggestedMovies()}
             mostViwed={this.mostViwed()}
             recentMovies={this.recentRelease('Film')}
             recentShows={this.recentRelease('Film')}
+            filterLimit={8}
             /> */}
         </div>
       </div>

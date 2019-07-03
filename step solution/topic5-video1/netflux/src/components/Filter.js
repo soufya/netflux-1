@@ -1,13 +1,13 @@
 import React from 'react';
 
-const Filter = () => {
+const Filter = (props) => {
   return (
     <section className="section filter">
       <div className="container">
         <form>
-          <label className="movieTypeLabel" htmlFor="movieType">أفلام</label>
+          <label className="movieTypeLabel" htmlFor="movieType">{props.type}</label>
           <select className="movieTypeSelect" id="movieType">
-            <option value="">نوع الفيلم</option>
+            <option value="">{props.optionText}</option>
             <option value="الأكشن">الأكشن</option>
             <option value="الغموض">الغموض</option>
             <option value="الدراما">الدراما</option>

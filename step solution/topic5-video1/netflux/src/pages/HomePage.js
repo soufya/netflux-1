@@ -17,8 +17,8 @@ const HomePage = (props) => {
       <Hero />
       <MovieSuggestion movies={props.suggested}/>
       <MostViwed movies={props.mostViwed}/>
-      <NewShows movies={props.recentMovies}/>
-      <NewMovies movies={props.recentShows}/>
+      <NewShows movies={props.recentMovies} filterLimit={props.filterLimit}/>
+      <NewMovies movies={props.recentShows} filterLimit={props.filterLimit}/>
       <Footer />
     </>
   );
