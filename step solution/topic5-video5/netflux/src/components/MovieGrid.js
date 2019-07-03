@@ -1,6 +1,17 @@
 import React from "react";
+import Movie from "./Movie";
 
 const MovieGrid = (props) => {
+  const movies = props.movies.slice(0, props.limit);
+  const movie = movies.map(data => (
+    <Movie
+      image={data.posterPath}
+      title={data.originalTitle}
+      key={data.movieVideos.key}
+      id={data.movieVideos.key}
+      history={props.history}
+    />));
+
   return (
     <section className={`section movies slider has-arrows ${props.gridType}`}>
       <div className="container">
@@ -8,7 +19,7 @@ const MovieGrid = (props) => {
           {props.title}
         </h3>
         <ul className="moviesGrid">
-          {props.children}
+          {movie}
         </ul>
       </div>
     </section>

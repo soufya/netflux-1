@@ -1,9 +1,7 @@
 import React from 'react';
 
+import MovieGrid from "../components/MovieGrid";
 import Filter from '../components/Filter';
-import Suggestion from '../components/Suggestion';
-import MostViwed from '../components/MostViwed';
-import NewMovies from '../components/NewMovies';
 
 // import data
 import data from "../data/movies.json";
@@ -18,9 +16,26 @@ class Movies extends React.Component {
     return (
       <>
         <Filter type="أفلام" optionText="نوع الفيلم" />
-        <Suggestion movies={suggestedMovies(this.state.movies)} />
-        <MostViwed movies={mostViwed(this.state.movies)} />
-        <NewMovies movies={recentRelease(this.state.movies, 'Film')} filterLimit={32} />
+        <MovieGrid
+          gridType="is-suggested"
+          title="إقتراحتنا لك"
+          limit={4}
+          movies={suggestedMovies(this.state.movies)}
+          history={this.props.history} />
+
+        <MovieGrid
+          gridType="is-suggested"
+          title="الأكثر مشاهدة"
+          limit={4}
+          movies={mostViwed(this.state.movies)}
+          history={this.props.history} />
+
+        <MovieGrid
+          gridType="is-suggested"
+          title="أحدث الأفلام"
+          limit={32}
+          movies={recentRelease(this.state.movies, 'Film')}
+          history={this.props.history} />
       </>
     );
   }

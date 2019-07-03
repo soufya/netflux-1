@@ -8,7 +8,15 @@ class Movies extends React.Component {
     movies: data
   }
 
+  findMovie() {
+    const id = this.props.match.params.id;
+    return this.state.movies.find(data => data.movieVideos.key === id);
+  }
+
   render() {
+
+    this.findMovie();
+
     return (
       <>
         <section className="section hero movieDetails has-bullets">
@@ -16,7 +24,7 @@ class Movies extends React.Component {
             <div className="movieVideo">
               <iframe id="ytplayer" type="text/html" width="640" height="360"
                 src="https://www.youtube.com/embed/edfw9ip9sCQ?modestbranding=1&rel=0"
-                frameborder="0"></iframe>
+                frameBorder="0"></iframe>
             </div>
             <div className="movieDetails">
               <h2 className="featured-title">Peaky Blinders</h2>
