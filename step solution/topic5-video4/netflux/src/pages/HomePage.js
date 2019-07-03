@@ -19,7 +19,7 @@ class HomePage extends React.Component {
     return (
       <>
         <Hero />
-        <Suggestion movies={suggestedMovies(this.state.movies)}/>
+        <Suggestion movies={suggestedMovies(this.state.movies)} history={this.props.history}/>
         <MostViwed movies={mostViwed(this.state.movies)}/>
         <NewShows movies={recentRelease(this.state.movies, 'Film')} filterLimit={8}/>
         <NewMovies movies={recentRelease(this.state.movies, 'Film')} filterLimit={8}/>
