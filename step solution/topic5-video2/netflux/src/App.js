@@ -1,74 +1,29 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-import SPA from './SPA';
-
-// import data
-import data from "./data/movies.json";
+import Header from './components/Header';
+import HomePage from './pages/HomePage';
+import Movies from './pages/Movies';
+import Shows from './pages/Shows';
+import Footer from './components/Footer';
 
 class App extends React.Component {
-  state = {
-    movies: data
-  }
-
-  suggestedMovies() {
-    return this.state.movies.filter(movie => movie.voteAverage > 8);
-  }
-
-  mostViwed() {
-    // 1. copy the state
-    const moviesCopy = [...this.state.movies];
-    // 2. return sorted data
-    return moviesCopy.sort((movie1, movie2) => movie1.popularity > movie2.popularity ? -1 : 1);
-  }
-
-  recentRelease(category) {
-    // 1. copy the state
-    const moviesCopy = [...this.state.movies];
-    // 2. filter based on category
-    const filteredDate = moviesCopy.filter(data => data.category === category);
-    // 3.  sorted data descendingly
-    return filteredDate.sort((date1, date2) => new Date(date1.releaseDate) > new Date(date2.releaseDate) ? -1 : 1);
-  }
-
 
   render() {
     return (
-      <div className="wrapper">
-        <div className="container">
-          <BrowserRouter>
-            <Switch>
+      <BrowserRouter>
+        <div className="wrapper">
+          <div className="container">
+            <Header />
+            <div>
               <Route exact path="/" component={HomePage} />
-            </Switch>
-          </BrowserRouter>
-
-          {/* <Movies
-            suggested={this.suggestedMovies()}
-            mostViwed={this.mostViwed()}
-            recentMovies={this.recentRelease('Film')}
-            filterLimit={32}
-            type="أفلام"
-            optionText="نوع الفيلم"
-          /> */}
-
-          {/* <Shows
-            suggested={this.suggestedMovies()}
-            mostViwed={this.mostViwed()}
-            recentMovies={this.recentRelease('Show')}
-            filterLimit={32}
-            type="المسلسلات"
-            optionText="نوع المسلسل"
-          /> */}
-
-          {/* <HomePage
-            suggested={this.suggestedMovies()}
-            mostViwed={this.mostViwed()}
-            recentMovies={this.recentRelease('Film')}
-            recentShows={this.recentRelease('Film')}
-            filterLimit={8}
-            /> */}
+              <Route exact path="/movies" component={Movies} />
+              <Route exact path="/shows" component={Shows} />
+            </div>
+            <Footer />
+          </div>
         </div>
-      </div>
+      </BrowserRouter>
     );
   }
 }

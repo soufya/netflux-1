@@ -1,24 +1,29 @@
 import React from 'react';
 
-import Header from '../components/Header';
 import Filter from '../components/Filter';
-import MovieSuggestion from '../components/MovieSuggestion';
+import Suggestion from '../components/Suggestion';
 import MostViwed from '../components/MostViwed';
 import NewMovies from '../components/NewMovies';
-import Footer from '../components/Footer';
 
-const Movies = (props) => {
-  return (
-    <>
-      {/* <Header />
-      <Filter type={props.type} optionText={props.optionText} />
-      <MovieSuggestion movies={props.suggested} />
-      <MostViwed movies={props.mostViwed} />
-      <NewMovies movies={props.recentMovies} filterLimit={props.filterLimit}/>
-      <Footer /> */}
-      <h1>hello from the movies</h1>
-    </>
-  );
+// import data
+import data from "../data/movies.json";
+import { suggestedMovies, mostViwed, recentRelease } from '../utils/helper';
+
+class Movies extends React.Component {
+  state = {
+    movies: data
+  }
+
+  render() {
+    return (
+      <>
+        <Filter type="أفلام" optionText="نوع الفيلم" />
+        <Suggestion movies={suggestedMovies(this.state.movies)} />
+        <MostViwed movies={mostViwed(this.state.movies)} />
+        <NewMovies movies={recentRelease(this.state.movies, 'Film')} filterLimit={32} />
+      </>
+    );
+  }
 }
 
 export default Movies;

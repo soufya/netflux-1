@@ -1,24 +1,29 @@
 import React from 'react';
 
-import Header from '../components/Header';
 import Filter from '../components/Filter';
-import MovieSuggestion from '../components/MovieSuggestion';
+import Suggestion from '../components/Suggestion';
 import MostViwed from '../components/MostViwed';
 import NewShows from '../components/NewShows';
-import Footer from '../components/Footer';
 
-const Shows = (props) => {
-  return (
-    <>
-      {/* <Header />
-      <Filter type={props.type} optionText={props.optionText}/>
-      <MovieSuggestion movies={props.suggested} />
-      <MostViwed movies={props.mostViwed} />
-      <NewShows movies={props.recentMovies} />
-      <Footer /> */}
-      <h1>hello from the shows page</h1>
-    </>
-  );
+// import data
+import data from "../data/movies.json";
+import { suggestedMovies, mostViwed, recentRelease } from '../utils/helper';
+
+class Shows extends React.Component {
+  state = {
+    movies: data
+  }
+
+  render() {
+    return (
+      <>
+        <Filter type="المسلسلات" optionText="نوع المسلسل" />
+        <Suggestion movies={suggestedMovies(this.state.movies)} />
+        <MostViwed movies={mostViwed(this.state.movies)} />
+        <NewShows movies={recentRelease(this.state.movies, 'Film')} filterLimit={32} />
+      </>
+    );
+  }
 }
 
 export default Shows;
