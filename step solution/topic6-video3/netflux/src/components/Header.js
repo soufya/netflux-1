@@ -2,7 +2,11 @@ import React from 'react';
 import Logo from './Logo';
 import MenuBar from "./MenuBar";
 
-const Header = () => {
+const onChangeHandler = (event, props) => {
+  props.onSearch(event.target.value)
+}
+
+const Header = (props) => {
     return (
       <header className="section" role="navigation">
         <div className="container">
@@ -14,7 +18,7 @@ const Header = () => {
           <MenuBar active="active"/>
           <div className="navbar-search">
             <button><i className="fas fa-search"></i></button>
-            <input className="searchInput" type="text" name="search" placeholder="إبحث عن فيلم أو مسلسل..." />
+            <input className="searchInput" type="text" name="search" placeholder="إبحث عن فيلم أو مسلسل..." onChange={(event) => onChangeHandler(event, props)}/>
 					</div>
       </div>
 		</header>

@@ -8,16 +8,27 @@ import Shows from './pages/Shows';
 import Details from './pages/Details';
 import Footer from './components/Footer';
 
+// import data
+import data from "./data/movies.json";
+
 class App extends React.Component {
+  state = {
+    movies: data,
+    searchTerm: ""
+  }
+
+  onSearch = (term) => {
+    this.setState({ searchTerm: term })
+  }
 
   render() {
     return (
       <BrowserRouter>
         <div className="wrapper">
           <div className="container">
-            <Header />
+            <Header onSearch={this.onSearch}/>
             <div>
-              <Route exact path="/" component={HomePage} />
+              <Route exact path="/" render={(props) => <HomePage {...props} searchTerm={this.state.searchTerm} movies={this.state.movies}/>} />
               <Route exact path="/movies" component={Movies} />
               <Route exact path="/shows" component={Shows} />
               <Route exact path="/details/:id" component={Details} />
