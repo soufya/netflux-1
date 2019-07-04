@@ -10,7 +10,10 @@ class HomePage extends React.Component {
   renderDisplayGrid() {
     return (
       <>
-        <Hero />
+        <Hero
+        history={this.props.history}
+        onSelect={this.props.onSelect} />
+
         <MovieGrid
           gridType="is-suggested"
           title="إقتراحتنا لك"

@@ -16,8 +16,8 @@ class Details extends React.Component {
               />
             </div>
             <div className="movieDetails">
-              <h2 className="featured-title">{this.props.selectedMovie.originalTitle}</h2>
-              <p className="featured-overview">{this.props.selectedMovie.originalOverview}</p>
+              <h2 className="featured-title">{this.props.selectedMovie.movieLanguages[0].title}</h2>
+              <p className="featured-overview">{this.props.selectedMovie.movieLanguages[0].overview}</p>
               <p className="movie-general-data">{this.props.selectedMovie.releaseDate}</p>
             </div>
           </div>

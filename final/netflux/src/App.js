@@ -3,13 +3,11 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
-import Movies from './pages/Movies';
-import Shows from './pages/Shows';
+import CategoryPage from './pages/CategoryPage';
 import Details from './pages/Details';
 import Footer from './components/Footer';
 import MovieGrid from "./components/MovieGrid";
 
-// import data
 import data from "./data/movies.json";
 
 class App extends React.Component {
@@ -63,15 +61,21 @@ class App extends React.Component {
               searchDisplay={this.renderSearchDisplay}
               onSelect={this.onSelect} />) } />
 
-              <Route exact path="/movies" render={(props) => (<Movies {...props}
+              <Route exact path="/movies" render={(props) => (<CategoryPage {...props}
+              type="Film"
+              typeText="الأفلام"
+              optionText="نوع الفيلم"
               searchTerm={this.state.searchTerm}
               movies={this.state.movies}
               filter={this.state.filter}
               onFilter={this.onFilter}
               searchDisplay={this.renderSearchDisplay}
               onSelect={this.onSelect} />) } />
-
-              <Route exact path="/shows" render={(props) => (<Shows {...props}
+              {/* change type to show later when data is there */}
+              <Route exact path="/shows" render={(props) => (<CategoryPage {...props}
+              type="Film"
+              typeText="المسلسلات"
+              optionText="نوع المسلسل"
               searchTerm={this.state.searchTerm}
               movies={this.state.movies}
               filter={this.state.filter}
