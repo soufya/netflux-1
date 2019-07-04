@@ -1,8 +1,6 @@
 import React from 'react';
 
 const renderDetails = (key) => {
-  console.log(key.id);
-
   key.onSelect(key.id);
   key.history.push(`/details${key.id}`);
 }

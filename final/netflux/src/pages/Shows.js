@@ -13,21 +13,24 @@ const renderShowsGrid = (props) => {
         title="إقتراحتنا لك"
         limit={4}
         movies={suggestedMovies(props.movies)}
-        history={props.history} />
+        history={props.history}
+        onSelect={props.onSelect} />
 
       <MovieGrid
         gridType="is-suggested"
         title="الأكثر مشاهدة"
         limit={4}
         movies={mostViwed(props.movies)}
-        history={props.history} />
+        history={props.history}
+        onSelect={props.onSelect} />
 
       <MovieGrid
         gridType="is-suggested"
         title="أحدث المسلسلات"
         limit={32}
         movies={recentRelease(props.movies, 'Film')}
-        history={props.history} />
+        history={props.history}
+        onSelect={props.onSelect} />
     </>
   );
 }
@@ -40,7 +43,8 @@ const renderFilterResult = (props, filter) => {
       title=""
       limit={filteredMovies.length}
       movies={filteredMovies}
-      history={props.history} />
+      history={props.history}
+      onSelect={props.onSelect} />
   )
 }
 

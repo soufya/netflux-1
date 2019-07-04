@@ -68,7 +68,8 @@ class App extends React.Component {
               movies={this.state.movies}
               filter={this.state.filter}
               onFilter={this.onFilter}
-              searchDisplay={this.renderSearchDisplay} />) } />
+              searchDisplay={this.renderSearchDisplay}
+              onSelect={this.onSelect} />) } />
 
               <Route exact path="/shows" render={(props) => (<Shows {...props}
               searchTerm={this.state.searchTerm}
@@ -76,7 +77,7 @@ class App extends React.Component {
               filter={this.state.filter}
               onFilter={this.onFilter}
               searchDisplay={this.renderSearchDisplay}
-              />)} />
+              onSelect={this.onSelect} />) } />
 
               <Route exact path="/details/:id" render={(props) => (<Details {...props}
               searchTerm={this.state.searchTerm}
