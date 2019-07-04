@@ -3,14 +3,22 @@ import React from 'react';
 // import data
 import data from "../data/movies.json";
 
-class Movies extends React.Component {
+class Details extends React.Component {
   state = {
     movies: data
   }
 
-  findMovie() {
+  findMovie = () => {
     const id = this.props.match.params.id;
-    return this.state.movies.find(data => data.movieVideos.key === id);
+    console.log(typeof id)
+    // this.state.movies.find(data => data.movieVideos.key === id);
+    try {
+      console.log(this.state.movies.find(movie => movie.movieVideos.key === "owK1qxDselE"));
+    } catch(err) {
+      console.log(err);
+    }
+
+    // return this.state.movies.find(data => data.movieVideos.key === id);
   }
 
   render() {
@@ -64,4 +72,4 @@ class Movies extends React.Component {
   }
 }
 
-export default Movies;
+export default Details;
