@@ -4,15 +4,19 @@ import Movie from "./Movie";
 const MovieGrid = (props) => {
   const movies = props.movies.slice(0, props.limit);
 
-  const movie = movies.map(data => (
+  const movie = movies.map(data => {
+    let id = data.posterPath.replace(".jpg", "")
+    return (
     <Movie
-      image={data.posterPath}
-      title={data.originalTitle}
-      // key={data.movieVideos.key}
-      id={data.posterPath}
-      history={props.history}
-      onSelect={props.onSelect}
-    />));
+      image = { data.posterPath }
+      title = { data.originalTitle }
+      key = { id }
+      index = { id }
+      id={ data.posterPath }
+      history = { props.history }
+      onSelect = { props.onSelect }
+    />)
+  });
 
   return (
     <section className={`section movies slider has-arrows ${props.gridType}`}>

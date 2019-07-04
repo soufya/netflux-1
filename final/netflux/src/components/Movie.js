@@ -2,7 +2,7 @@ import React from 'react';
 
 const renderDetails = (key) => {
   key.onSelect(key.id);
-  key.history.push(`/details${key.id}`);
+  key.history.push(`/details${key.index}`);
 }
 const Movie = props => {
     return (
