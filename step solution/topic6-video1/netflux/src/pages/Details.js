@@ -10,13 +10,13 @@ class Details extends React.Component {
 
   findMovie = () => {
     const id = this.props.match.params.id;
-    console.log(typeof id)
+    console.log('hi')
     // this.state.movies.find(data => data.movieVideos.key === id);
-    try {
-      console.log(this.state.movies.find(movie => movie.movieVideos.key === "owK1qxDselE"));
-    } catch(err) {
-      console.log(err);
-    }
+    // try {
+    //   console.log(this.state.movies.find(movie => movie.movieVideos.key === "owK1qxDselE"));
+    // } catch(err) {
+    //   console.log(err);
+    // }
 
     // return this.state.movies.find(data => data.movieVideos.key === id);
   }

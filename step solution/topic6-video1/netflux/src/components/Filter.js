@@ -1,22 +1,36 @@
-import React from 'react';
+import React from "react";
 
-const Filter = (props) => {
-  return (
-    <section className="section filter">
-      <div className="container">
-        <form>
-          <label className="movieTypeLabel" htmlFor="movieType">{props.type}</label>
-          <select className="movieTypeSelect" id="movieType">
-            <option value="">{props.optionText}</option>
-            <option value="الأكشن">الأكشن</option>
-            <option value="الغموض">الغموض</option>
-            <option value="الدراما">الدراما</option>
-            <option value="الكوميدي">الكوميدي</option>
-          </select>
-        </form>
-      </div>
-    </section>
-  );
+class Filter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { value: ""}
+    // fix 'this' binding issue
+    this.onChangeHandler = this.onChangeHandler.bind(this);
+  }
+
+  onChangeHandler(event) {
+    this.props.onSelectChange(event.target.value);
+    this.setState({value: event.target.value});
+  }
+
+  render() {
+    return (
+      <section className="section filter">
+        <div className="container">
+          <form>
+            <label className="movieTypeLabel" htmlFor="movieType">{this.props.type}</label>
+            <select className="movieTypeSelect" id="movieType" value={this.state.value} onChange={this.onChangeHandler}>
+              <option value="">{this.props.optionText}</option>
+              <option value="Action">الأكشن</option>
+              <option value="Thriller">الغموض</option>
+              <option value="Drama">الدراما</option>
+              <option value="Comedy">الكوميدي</option>
+            </select>
+          </form>
+        </div>
+      </section>
+    );
+  }
 }
 
 export default Filter;

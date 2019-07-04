@@ -9,13 +9,17 @@ import { suggestedMovies, mostViwed, recentRelease } from '../utils/helper';
 
 class Movies extends React.Component {
   state = {
-    movies: data
+    movies: data,
+    filter: ""
   }
 
-  render() {
+  onSelectChange = (value) => {
+    this.setState({filter: value})
+  }
+
+  renderMoviesGrid() {
     return (
       <>
-        <Filter type="أفلام" optionText="نوع الفيلم" />
         <MovieGrid
           gridType="is-suggested"
           title="إقتراحتنا لك"
@@ -36,6 +40,21 @@ class Movies extends React.Component {
           limit={32}
           movies={recentRelease(this.state.movies, 'Film')}
           history={this.props.history} />
+      </>
+    );
+  }
+
+  renderFilterResult() {
+    return <h1>filtered result </h1>
+  }
+
+  render() {
+    let display = this.state.filter === "" ? this.renderMoviesGrid() : this.renderFilterResult();
+
+    return (
+      <>
+        <Filter type="أفلام" optionText="نوع الفيلم" onSelectChange={this.onSelectChange}/>
+        {display}
       </>
     );
   }
