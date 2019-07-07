@@ -1,5 +1,6 @@
 .hero.movieDetails {
     position: relative;
+    background: black;
     @include media(">tablet") {
         height: 60vh;
     }

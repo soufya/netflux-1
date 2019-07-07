@@ -30,22 +30,22 @@ class App extends React.Component {
     const selected = this.state.movies.find(movie => movie.posterPath === id);
     this.setState({ selectedMovie: selected});
   }
-
+  //TODO Tony: Here we might just have a new route for search results to make sure the query string is in the URL so the user can refresh anytime and also
+  // to avoid the duplication of the search term and sending the DOM of search results over and over againt to all routes
   renderSearchDisplay = () => {
     const searchResult = this.state.movies.filter((movie) => {
       const regex = new RegExp(this.state.searchTerm, 'gi');
+      //TODO Tony: Maybe let's extend the search here to include movie description in both languages ;-)
       return movie.originalTitle.match(regex);
     });
-    console.log(searchResult);
-
-    return (
+    return (searchResult.length) ? (
       <MovieGrid
-        gridType="is-suggested"
-        title=""
+        gridType="search-results"
+        title={`نتيجة البحث عن ${this.state.searchTerm}`}
         limit={searchResult.length}
         movies={searchResult}
         history={this.props.history} />
-    )
+    ) : <p>أسفين، لم نستطع إيجاد ما تبحث عنه من فضلك قُم بتغيير كلمة البحث</p>
   }
 
   render() {
@@ -54,7 +54,7 @@ class App extends React.Component {
         <div className="wrapper">
           <div className="container">
             <Header onSearch={this.onSearch}/>
-            <div>
+            <>
               <Route exact path="/" render={(props) => (<HomePage {...props}
               searchTerm={this.state.searchTerm}
               movies={this.state.movies}
@@ -88,8 +88,8 @@ class App extends React.Component {
               searchDisplay={this.renderSearchDisplay}
               selectedMovie={this.state.selectedMovie}
               />)} />
-            </div>
-            <Footer />
+            </>
+            <Footer /> {/*TODO Tony: I need to fix the CSS here to make sure the footer is always in the bottom even of the container is short*/}
           </div>
         </div>
       </BrowserRouter>

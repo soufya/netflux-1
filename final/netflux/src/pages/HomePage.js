@@ -23,7 +23,7 @@ class HomePage extends React.Component {
           onSelect={this.props.onSelect} />
 
         <MovieGrid
-          gridType="is-suggested"
+          gridType="is-popular"
           title="الأكثر مشاهدة"
           limit={4}
           movies={mostViwed(this.props.movies)}
@@ -31,7 +31,7 @@ class HomePage extends React.Component {
           onSelect={this.props.onSelect} />
 
         <MovieGrid
-          gridType="is-suggested"
+          gridType="latest-shows"
           title="أحدث المسلسلات"
           limit={8}
           movies={recentRelease(this.props.movies, 'Film')}
@@ -39,13 +39,13 @@ class HomePage extends React.Component {
           onSelect={this.props.onSelect} />
 
         <MovieGrid
-          gridType="is-suggested"
+          gridType="latest-movies"
           title="أحدث الأفلام"
           limit={8}
           movies={recentRelease(this.props.movies, 'Film')}
           history={this.props.history}
           onSelect={this.props.onSelect} />
-    </>
+      </>
     );
   }
 
