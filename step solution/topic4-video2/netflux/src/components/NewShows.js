@@ -4,11 +4,15 @@ import MovieGrid from "./MovieGrid";
 
 const NewShows = props => {
     return (
-      <MovieGrid gridType="is-movies" title="أحدث الأفلام">
-        <Movie image={props.image} title={props.movies[16].originalTitle} />
-        <Movie image={props.image} title={props.movies[17].originalTitle} />
-        <Movie image={props.image} title={props.movies[18].originalTitle} />
-        <Movie image={props.image} title={props.movies[19].originalTitle} />
+      <MovieGrid gridType="is-movies" title="أحدث المسلسلات">
+        <Movie image={props.movies[0].poster} title={props.movies[0].title} />
+        <Movie image={props.movies[1].poster} title={props.movies[1].title} />
+        <Movie image={props.movies[2].poster} title={props.movies[2].title} />
+        <Movie image={props.movies[3].poster} title={props.movies[3].title} />
+        <Movie image={props.movies[0].poster} title={props.movies[0].title} />
+        <Movie image={props.movies[1].poster} title={props.movies[1].title} />
+        <Movie image={props.movies[2].poster} title={props.movies[2].title} />
+        <Movie image={props.movies[3].poster} title={props.movies[3].title} />
       </MovieGrid>
     );
 }
