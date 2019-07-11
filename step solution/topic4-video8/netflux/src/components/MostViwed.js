@@ -3,12 +3,17 @@ import Movie from "./Movie";
 import MovieGrid from "./MovieGrid";
 
 const MostViwed = props => {
-  const movies = props.movies.slice(0, 4);
-  const movie = movies.map(data => <Movie image={data.posterPath} title={data.originalTitle} key={data.movieVideos.key} />);
+    props.movies.sort((movie1, movie2) => {
+      return movie1.popularity > movie2.popularity ? -1 : 1;
+    });
+
+  const movieList = props.movies.map((movie) => {
+    return <Movie key={movie.posterPath} image={movie.posterPath} title={movie.originalTitle} />
+  });
 
     return (
       <MovieGrid gridType="is-suggested" title="الأكثر مشاهدة">
-        {movie}
+        {movieList.slice(0, 4)}
       </MovieGrid>
     );
 }

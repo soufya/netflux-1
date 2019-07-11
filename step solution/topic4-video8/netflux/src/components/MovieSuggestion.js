@@ -3,12 +3,17 @@ import Movie from "./Movie";
 import MovieGrid from "./MovieGrid";
 
 const MovieSuggestion = props => {
-  const movies = props.movies.slice(0, 4);
-  const movie = movies.map(data => <Movie image={data.posterPath} title={data.originalTitle} key={data.movieVideos.key}/>);
+    const filteredDate = props.movies.filter(movie => {
+      return movie.voteAverage > 8;
+    });
+
+    const movieList = filteredDate.map((movie) => {
+      return <Movie key={movie.posterPath} image={movie.posterPath} title={movie.originalTitle} />
+    });
 
     return (
       <MovieGrid gridType="is-suggested" title="إقتراحتنا لك">
-        {movie}
+        {movieList.slice(0,4)}
       </MovieGrid>
     );
 }
