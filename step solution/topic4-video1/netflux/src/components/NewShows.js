@@ -4,7 +4,7 @@ import MovieGrid from "./MovieGrid";
 
 const NewShows = props => {
     return (
-      <MovieGrid gridType="is-movies" title="أحدث الأفلام">
+      <MovieGrid gridType="is-movies" title="أحدث المسلسلات">
         <Movie image={props.images[0]} title="The Maze Runner" />
         <Movie image={props.images[1]} title="Breaking Bad" />
         <Movie image={props.images[2]} title="Peaky Blinders" />
