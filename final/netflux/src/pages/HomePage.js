@@ -6,55 +6,35 @@ import MovieGrid from "../components/MovieGrid";
 import { suggestedMovies, mostViwed, recentRelease} from '../utils/helper';
 
 class HomePage extends React.Component {
+  render() {
 
-  renderDisplayGrid() {
     return (
       <>
-        <Hero
-        history={this.props.history}
-        onSelect={this.props.onSelect} />
-
+        <Hero />
         <MovieGrid
           gridType="is-suggested"
           title="إقتراحتنا لك"
           limit={4}
           movies={suggestedMovies(this.props.movies)}
-          history={this.props.history}
-          onSelect={this.props.onSelect} />
-
+        />
         <MovieGrid
           gridType="is-popular"
           title="الأكثر مشاهدة"
           limit={4}
           movies={mostViwed(this.props.movies)}
-          history={this.props.history}
-          onSelect={this.props.onSelect} />
-
+        />
         <MovieGrid
           gridType="latest-shows"
           title="أحدث المسلسلات"
           limit={8}
-          movies={recentRelease(this.props.movies, 'Film')}
-          history={this.props.history}
-          onSelect={this.props.onSelect} />
-
+          movies={recentRelease(this.props.movies, 'Film')} // TODO Tony: Let's get shows data and change this to get them
+        />
         <MovieGrid
           gridType="latest-movies"
           title="أحدث الأفلام"
           limit={8}
           movies={recentRelease(this.props.movies, 'Film')}
-          history={this.props.history}
-          onSelect={this.props.onSelect} />
-      </>
-    );
-  }
-
-  render() {
-    let display = this.props.searchTerm === "" ? this.renderDisplayGrid() : this.props.searchDisplay();
-
-    return (
-      <>
-       {display}
+        />
       </>
     );
   }

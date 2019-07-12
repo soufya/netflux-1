@@ -1,24 +1,27 @@
 import React from 'react';
+import { getMovieTitle, getMovieOverview } from '../utils/helper';
 
 
 class Details extends React.Component {
 
-  renderDetails = () => {
-    const genres = this.props.selectedMovie.genres.join(" | ");
+  render() {
+    const movieId = this.props.match.params.id;
+    const movie = this.props.movies.find(movie => movie.posterPath.includes(movieId))
+    const genres = movie.genres.join(" | ");
     return (
       <>
         <section className="section hero movieDetails has-bullets">
           <div className="container">
             <div className="movieVideo">
-              <iframe src={`https://www.youtube.com/embed/${this.props.selectedMovie.movieVideos.key}`}
+              <iframe src={`https://www.youtube.com/embed/${movie.movieVideos.key}`}
                 frameBorder='0'
                 title='video'
               />
             </div>
             <div className="movieDetails">
-              <h2 className="featured-title">{this.props.selectedMovie.movieLanguages[0].title}</h2>
-              <p className="featured-overview">{this.props.selectedMovie.movieLanguages[0].overview}</p>
-              <p className="movie-general-data">{this.props.selectedMovie.releaseDate}</p>
+              <h2 className="featured-title">{getMovieTitle(movie)}</h2>
+              <p className="featured-overview">{getMovieOverview(movie)}</p>
+              <p className="movie-general-data">{movie.releaseDate}</p>
             </div>
           </div>
         </section>
@@ -34,19 +37,10 @@ class Details extends React.Component {
             </ul>
             <div className="plot">
               <h3 className="section-title">القصة</h3>
-              <p>{this.props.selectedMovie.originalOverview}</p>
+              <p>{movie.originalOverview}</p>
             </div>
           </div>
         </section>
-      </>
-    );
-  }
-
-  render() {
-    let result = this.props.searchTerm === "" ? this.renderDetails() : this.props.searchDisplay();
-    return (
-      <>
-        {result}
       </>
     );
   }

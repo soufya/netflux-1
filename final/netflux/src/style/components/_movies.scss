@@ -39,14 +39,18 @@
         bottom: 0;
         right: 0;
         width: 100%;
-        text-align: left;
+        text-align: right;
         padding: $spacing-basic;
         color: $white;
         font-weight: bold;
         background-color: rgba($black, 0.9);
+        text-overflow: ellipsis; /* Refer to this article for more understanding https://css-tricks.com/almanac/properties/t/text-overflow/ */
+        padding-left: 4rem;
+        white-space: nowrap;
+        overflow: hidden;
         .play-icon {
             position: absolute;
-            right: 0;
+            left: 0;
             top: 0;
             width: 3rem;
             height: 100%;
