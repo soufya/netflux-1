@@ -2,7 +2,7 @@ import React from 'react';
 
 const renderDetails = (key) => {
   // todo: change the path to '/details/:whatever-key-we-want'
-  key.history.push(`/details/${key.id}`);
+  key.history.push(`/details`);
 }
 const Movie = props => {
     return (

@@ -2,14 +2,16 @@ import React from "react";
 import Movie from "./Movie";
 import MovieGrid from "./MovieGrid";
 
+import { suggested } from "../utils/helper";
+
 const MovieSuggestion = props => {
-  const movies = props.movies.slice(0, 4);
-  const movie = movies.map(data => <Movie image={data.posterPath} title={data.originalTitle} key={data.movieVideos.key}/>);
 
     return (
-      <MovieGrid gridType="is-suggested" title="إقتراحتنا لك">
-        {movie}
-      </MovieGrid>
+      <MovieGrid
+      gridType="is-suggested"
+      title="إقتراحتنا لك"
+      movies={suggested(props.movies)}
+      limit={4} />
     );
 }
 

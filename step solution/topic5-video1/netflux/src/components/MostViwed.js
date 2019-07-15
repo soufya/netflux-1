@@ -2,14 +2,15 @@ import React from "react";
 import Movie from "./Movie";
 import MovieGrid from "./MovieGrid";
 
-const MostViwed = props => {
-  const movies = props.movies.slice(0, 4);
-  const movie = movies.map(data => <Movie image={data.posterPath} title={data.originalTitle} key={data.movieVideos.key} />);
+import { mostViwed } from "../utils/helper";
 
+const MostViwed = props => {
     return (
-      <MovieGrid gridType="is-suggested" title="الأكثر مشاهدة">
-        {movie}
-      </MovieGrid>
+      <MovieGrid
+        gridType="is-suggested"
+        title="الأكثر مشاهدة"
+        movies={mostViwed(props.movies)}
+        limit={4} />
     );
 }
 
