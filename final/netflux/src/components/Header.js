@@ -1,12 +1,27 @@
 import React from 'react';
+import { withRouter } from "react-router";
 import Logo from './Logo';
 import MenuBar from "./MenuBar";
 
-const onChangeHandler = (event, props) => {
-  props.onSearch(event.target.value)
-}
-
-const Header = (props) => {
+class Header extends React.Component {
+  state = {
+    searchTerm: '',
+  }
+  onChangeHandler = (e) => {
+    if (e.target.value) {
+      this.setState({
+        searchTerm: e.target.value,
+        origin: this.props.location.pathname.includes('/search') ? this.state.origin : this.props.location.pathname,
+      });
+      return this.props.history.push(`/search/${e.target.value}`);
+    } else {
+      this.setState({
+        searchTerm: ''
+      });
+      return this.props.history.push(this.state.origin);
+    }
+  }
+  render() {
     return (
       <header className="section" role="navigation">
         <div className="container">
@@ -18,11 +33,12 @@ const Header = (props) => {
           <MenuBar active="active"/>
           <div className="navbar-search">
             <button><i className="fas fa-search"></i></button>
-            <input className="searchInput" type="text" name="search" placeholder="إبحث عن فيلم أو مسلسل..." onChange={(event) => onChangeHandler(event, props)}/>
+            <input defaultValue={this.state.searchTerm} className="searchInput" type="text" name="search" placeholder="إبحث عن فيلم أو مسلسل..." onChange={this.onChangeHandler}/>
 					</div>
       </div>
 		</header>
     );
+  }
 }
 
-export default Header;
+export default withRouter(Header);
