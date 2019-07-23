@@ -8,10 +8,11 @@ import { suggestedMovies, mostViwed, recentRelease } from '../utils/helper';
 
 class CategoryPage extends React.Component {
   state = {
-    filter: ""
+    filter: null,
   }
 
   onFilter = (value) => {
+    // TODO Athough: Do you think it's a good idea to keep the filters also in the URL ? maybe this is a good idea for an excersise that the students can do according to what we did in the search ;-)
     this.setState({ filter: value })
   }
 
@@ -23,24 +24,19 @@ class CategoryPage extends React.Component {
           title="إقتراحتنا لك"
           limit={4}
           movies={suggestedMovies(this.props.movies)}
-          history={this.props.history}
-          onSelect={this.props.onSelect} />
-
+        />
         <MovieGrid
           gridType="is-suggested"
           title="الأكثر مشاهدة"
           limit={4}
           movies={mostViwed(this.props.movies)}
-          history={this.props.history}
-          onSelect={this.props.onSelect} />
-
+        />
         <MovieGrid
           gridType="is-suggested"
-          title={`"أحدث ${this.props.typeText}"`}
+          title={`أحدث ${this.props.typeText}`}
           limit={32}
           movies={recentRelease(this.props.movies, this.props.type)}
-          history={this.props.history}
-          onSelect={this.props.onSelect} />
+        />
       </>
     );
   }
@@ -50,22 +46,17 @@ class CategoryPage extends React.Component {
     return (
       <MovieGrid
         gridType="is-suggested"
-        title=""
-        limit={filteredMovies.length}
-        movies={filteredMovies}
-        history={this.props.history}
-        onSelect={this.props.onSelect} />
+        // TODO Athough: What do you think about this ? Here we can use a helper function with a switch to translate english names into arabic names ex. Thriller => أفلام الغموض أو مسلسلات الغموض
+        title={this.state.filter}
+        movies={filteredMovies}/>
     )
   }
 
   render() {
-    let display = this.state.filter === "" ? this.renderMoviesGrid() : this.renderFilterResult();
-    let result = this.props.searchTerm === "" ? display : this.props.searchDisplay();
-
     return (
       <>
         <Filter type={this.props.typeText} optionText={this.props.optionText} onSelectChange={this.onFilter} />
-        {result}
+        {this.state.filter ? this.renderFilterResult() : this.renderMoviesGrid()}
       </>
     );
   }

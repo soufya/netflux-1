@@ -1,3 +1,11 @@
+export const getMovieTitle = (movie) => {
+  return (movie.movieLanguages[0]) ? movie.movieLanguages[0].title : movie.originalTitle;
+}
+
+export const getMovieOverview = (movie) => {
+  return (movie.movieLanguages[0]) ? movie.movieLanguages[0].overview : movie.originalOverview;
+}
+
 export const suggestedMovies = (data) => {
   return data.filter(movie => movie.voteAverage > 8);
 }

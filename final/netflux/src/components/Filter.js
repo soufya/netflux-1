@@ -13,8 +13,6 @@ class Filter extends React.Component {
   }
 
   render() {
-    console.log(this.state.value);
-
     return (
       <section className="section filter">
         <div className="container">

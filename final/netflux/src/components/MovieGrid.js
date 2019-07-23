@@ -2,23 +2,8 @@ import React from "react";
 import Movie from "./Movie";
 
 const MovieGrid = (props) => {
-  const movies = props.movies.slice(0, props.limit);
-
-  const movie = movies.map((data, i) => {
-    let id = data.posterPath.replace(".jpg", "")
-
-  return (
-    <Movie
-      image = { data.posterPath }
-      title = { data.originalTitle }
-      key = { i }
-      index = { id }
-      id={ data.posterPath }
-      history = { props.history }
-      onSelect = { props.onSelect }
-    />)
-  });
-
+  const movies = (props.limit) ? props.movies.slice(0, props.limit) : props.movies;
+  let moviesList = movies.map((movie, i) => (<Movie key={i} movie={movie} />));
   return (
     <section className={`section movies slider has-arrows ${props.gridType}`}>
       <div className="container">
@@ -26,7 +11,7 @@ const MovieGrid = (props) => {
           {props.title}
         </h3>
         <ul className="moviesGrid">
-          {movie}
+          {(moviesList.length) ? moviesList : <p>أسفين، لم نستطع إيجاد ما تبحث عنه من فضلك قُم بتغيير كلمة البحث</p>}
         </ul>
       </div>
     </section>
