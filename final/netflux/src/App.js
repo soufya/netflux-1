@@ -48,7 +48,7 @@ class App extends React.Component {
                 path="/shows"
                 render={(props) => (<CategoryPage
                   {...props}
-                  type="Film" /* TODO: change type to show later when data is there */
+                  type="Show" /* TODO: change type to show later when data is there */
                   typeText="المسلسلات"
                   optionText="نوع المسلسل"
                   movies={this.state.movies}
