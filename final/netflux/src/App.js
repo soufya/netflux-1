@@ -48,7 +48,7 @@ class App extends React.Component {
                 path="/shows"
                 render={(props) => (<CategoryPage
                   {...props}
-                  type="Show" /* TODO: change type to show later when data is there */
+                  type="Show"
                   typeText="المسلسلات"
                   optionText="نوع المسلسل"
                   movies={this.state.movies}
@@ -72,7 +72,6 @@ class App extends React.Component {
                 />)}
               />
             </>
-            {/*TODO Tony: I need to fix the CSS here to make sure the footer is always in the bottom even of the container is short*/}
             <Footer />
           </div>
         </div>

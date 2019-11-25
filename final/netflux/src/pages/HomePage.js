@@ -27,7 +27,7 @@ class HomePage extends React.Component {
           gridType="latest-shows"
           title="أحدث المسلسلات"
           limit={8}
-          movies={recentRelease(this.props.movies, 'Show')} // TODO Tony: Let's get shows data and change this to get them
+          movies={recentRelease(this.props.movies, 'Show')}
         />
         <MovieGrid
           gridType="latest-movies"
